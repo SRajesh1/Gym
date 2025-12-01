@@ -18,235 +18,46 @@
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="#" class="logo">Iron<span class="highlight">Forge</span></a>
-            <ul class="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#workouts">Workouts</a></li>
-                <li><a href="#diet-plans">Diet Plans</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header id="home" class="hero">
-        <div class="hero-slider">
-            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
-            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
-            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
-        </div>
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <h1>Forge Your <span class="highlight">Legacy</span></h1>
-            <p>Expert workout routines and personalized diet plans to sculpt your dream physique.</p>
-            <div class="hero-btns">
-                <a href="#workouts" class="btn btn-primary">Start Training</a>
-                <a href="#diet-plans" class="btn btn-secondary">View Diet Plans</a>
-            </div>
-        </div>
-    </header>
-
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">About <span class="highlight">IronForge</span></h2>
-            <p class="section-subtitle">More than just a gym. We are a movement.</p>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bodybuilder Posing">
-                </div>
-                <div class="about-text-wrapper">
-                    <div class="about-text">
-                        <p>At IronForge, we believe that fitness is not just about lifting weights; it's about forging a stronger version of yourself. Our philosophy combines old-school grit with modern science to help you break through plateaus and achieve your peak potential.</p>
-                        <p>Whether you are a beginner taking your first step or an elite athlete looking for that extra edge, our comprehensive resources and expert-designed plans are here to guide you every rep of the way.</p>
-                    </div>
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <h3>50+</h3>
-                            <p>Expert Trainers</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>100+</h3>
-                            <p>Workout Plans</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>10k+</h3>
-                            <p>Lives Changed</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Workouts Section -->
-    <section id="workouts" class="section bg-darker">
-        <div class="container">
-            <h2 class="section-title">Workout <span class="highlight">Styles</span></h2>
-            <div class="grid-container">
-                <!-- Content will be populated here -->
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-dumbbell"></i></div>
-                    <h3>Hypertrophy</h3>
-                    <p>Maximize muscle growth with volume-focused training.</p>
-                    <a href="#" class="text-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-running"></i></div>
-                    <h3>Cardio & HIIT</h3>
-                    <p>Burn fat and improve endurance with high-intensity intervals.</p>
-                    <a href="#" class="text-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="card">
-                    <div class="card-icon"><i class="fas fa-weight-hanging"></i></div>
-                    <h3>Powerlifting</h3>
-                    <p>Build raw strength with heavy compound movements.</p>
-                    <a href="#" class="text-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-                 <div class="card">
-                    <div class="card-icon"><i class="fas fa-child"></i></div>
-                    <h3>Calisthenics</h3>
-                    <p>Master your bodyweight with functional movements.</p>
-                    <a href="#" class="text-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Exercise Library Section -->
-    <section id="exercises" class="section">
-        <div class="container">
-            <h2 class="section-title">Exercise <span class="highlight">Library</span></h2>
-            <p class="section-subtitle">Master your form with our comprehensive guide.</p>
-            
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="chest">Chest</button>
-                <button class="filter-btn" data-filter="back">Back</button>
-                <button class="filter-btn" data-filter="legs">Legs</button>
-                <button class="filter-btn" data-filter="shoulders">Shoulders</button>
-                <button class="filter-btn" data-filter="arms">Arms</button>
-                <button class="filter-btn" data-filter="core">Core</button>
-            </div>
-
-            <div class="exercise-grid" id="exercise-grid">
-                <!-- Exercises will be dynamically populated by JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Diet Plans Section -->
-    <section id="diet-plans" class="section bg-darker">
-        <div class="container">
-            <h2 class="section-title">Diet <span class="highlight">Plans</span></h2>
-            <p class="section-subtitle">Fuel your body based on your goals.</p>
-            
-            <div class="diet-tabs">
-                <button class="tab-btn active" data-target="weight-loss">Weight Loss</button>
-                <button class="tab-btn" data-target="muscle-gain">Muscle Gain</button>
-                <button class="tab-btn" data-target="maintenance">Maintenance</button>
-                <button class="tab-btn" data-target="keto">Keto</button>
-                <button class="tab-btn" data-target="vegan">Vegan</button>
-            </div>
-
-            <div class="diet-content active" id="weight-loss">
-                <div class="diet-card">
-                    <h3><i class="fas fa-leaf"></i> Fat Burner</h3>
-                    <ul>
-                        <li><strong>Breakfast:</strong> Oatmeal with berries & protein shake.</li>
-                        <li><strong>Lunch:</strong> Grilled chicken salad with olive oil.</li>
-                        <li><strong>Dinner:</strong> Steamed fish with broccoli & quinoa.</li>
-                    </ul>
-                </div>
-            </div>
-             <div class="diet-content" id="muscle-gain" style="display:none;">
-                <div class="diet-card">
-                    <h3><i class="fas fa-drumstick-bite"></i> Mass Builder</h3>
-                    <ul>
-                        <li><strong>Breakfast:</strong> 4 Eggs, toast, peanut butter.</li>
-                        <li><strong>Lunch:</strong> Steak, rice, and mixed veggies.</li>
-                        <li><strong>Dinner:</strong> Salmon, sweet potato, avocado.</li>
-                    </ul>
-                </div>
-            </div>
-             <div class="diet-content" id="maintenance" style="display:none;">
-                <div class="diet-card">
-                    <h3><i class="fas fa-balance-scale"></i> Balanced Life</h3>
-                    <ul>
-                        <li><strong>Breakfast:</strong> Greek yogurt with granola.</li>
-                        <li><strong>Lunch:</strong> Turkey wrap with whole wheat tortilla.</li>
-                        <li><strong>Dinner:</strong> Stir-fry tofu with brown rice.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="diet-content" id="keto" style="display:none;">
-                <div class="diet-card">
-                    <h3><i class="fas fa-bacon"></i> Keto Power</h3>
-                    <ul>
-                        <li><strong>Breakfast:</strong> Bacon, eggs, and avocado.</li>
-                        <li><strong>Lunch:</strong> Caesar salad with extra chicken (no croutons).</li>
-                        <li><strong>Dinner:</strong> Ribeye steak with asparagus butter.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="diet-content" id="vegan" style="display:none;">
-                <div class="diet-card">
-                    <h3><i class="fas fa-seedling"></i> Plant Strength</h3>
-                    <ul>
-                        <li><strong>Breakfast:</strong> Tofu scramble with spinach and toast.</li>
-                        <li><strong>Lunch:</strong> Lentil soup with a side of quinoa.</li>
-                        <li><strong>Dinner:</strong> Chickpea curry with brown rice.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BMI Calculator Section -->
-    <section id="bmi" class="section">
-        <div class="container">
-            <h2 class="section-title">BMI <span class="highlight">Calculator</span></h2>
-            <p class="section-subtitle">Check your Body Mass Index to understand your health status.</p>
-            
-            <div class="bmi-container">
-                <div class="bmi-form">
-                    <div class="form-group">
-                        <label for="height">Height (cm)</label>
-                        <input type="number" id="height" placeholder="e.g. 175">
-                    </div>
-                    <div class="form-group">
-                        <label for="weight">Weight (kg)</label>
-                        <input type="number" id="weight" placeholder="e.g. 70">
-                    </div>
-                    <button id="calculate-bmi" class="btn btn-primary">Calculate BMI</button>
-                </div>
-                <div class="bmi-result" id="bmi-result">
-                    <div class="bmi-score">--</div>
-                    <div class="bmi-text">Enter your details</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact" class="footer">
-        <div class="container footer-content">
-            <div class="footer-logo">Iron<span class="highlight">Forge</span></div>
-            <p>&copy; 2025 IronForge Gym. All rights reserved.</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-            </div>
-        </div>
-    </footer>
+    <div id="load-navbar"></div>
+    <div id="load-hero"></div>
+    <div id="load-about"></div>
+    <div id="load-workouts"></div>
+    <div id="load-exercises"></div>
+    <div id="load-diet-plans"></div>
+    <div id="load-bmi"></div>
+    <div id="load-footer"></div>
 
     <script src="script.js"></script>
+    <script>
+        const sections = [
+            { id: 'load-navbar', url: 'sections/navbar.html' },
+            { id: 'load-hero', url: 'sections/hero.html' },
+            { id: 'load-about', url: 'sections/about.html' },
+            { id: 'load-workouts', url: 'sections/workouts.html' },
+            { id: 'load-exercises', url: 'sections/exercises.html' },
+            { id: 'load-diet-plans', url: 'sections/diet_plans.html' },
+            { id: 'load-bmi', url: 'sections/bmi.html' },
+            { id: 'load-footer', url: 'sections/footer.html' }
+        ];
+
+        Promise.all(sections.map(sec => 
+            fetch(sec.url)
+                .then(res => {
+                    if (!res.ok) throw new Error(`Failed to load ${sec.url}`);
+                    return res.text();
+                })
+                .then(html => {
+                    const el = document.getElementById(sec.id);
+                    if(el) el.outerHTML = html;
+                })
+                .catch(err => {
+                    console.error(err);
+                    const el = document.getElementById(sec.id);
+                    if(el) el.innerHTML = `<div style="color: red; padding: 20px; text-align: center;">Error loading section. If you are opening this file directly, please use a Local Server (like VS Code Live Server).</div>`;
+                })
+        )).then(() => {
+            if (window.initApp) window.initApp();
+        });
+    </script>
 </body>
 </html>

@@ -1,68 +1,81 @@
-document.addEventListener('DOMContentLoaded', () => {
+window.initApp = function() {
     // Mobile Navigation
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
     const links = document.querySelectorAll('.nav-links li');
 
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        hamburger.classList.toggle('toggle');
-    });
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('toggle');
+        });
+    }
 
     // Close mobile menu when clicking a link
-    links.forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
+    if (links) {
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
         });
-    });
+    }
 
     // Diet Plan Tabs
     const tabBtns = document.querySelectorAll('.tab-btn');
     const dietContents = document.querySelectorAll('.diet-content');
 
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active class from all buttons
-            tabBtns.forEach(b => b.classList.remove('active'));
-            // Add active class to clicked button
-            btn.classList.add('active');
+    if (tabBtns) {
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tabBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
 
-            // Hide all content
-            dietContents.forEach(content => {
-                content.style.display = 'none';
-                content.classList.remove('active');
+                // Hide all content
+                dietContents.forEach(content => {
+                    content.style.display = 'none';
+                    content.classList.remove('active');
+                });
+
+                // Show target content
+                const targetId = btn.getAttribute('data-target');
+                const targetContent = document.getElementById(targetId);
+                if (targetContent) {
+                    targetContent.style.display = 'block';
+                    // Small delay to allow display:block to apply before opacity transition
+                    setTimeout(() => {
+                        targetContent.classList.add('active');
+                    }, 10);
+                }
             });
-
-            // Show target content
-            const targetId = btn.getAttribute('data-target');
-            const targetContent = document.getElementById(targetId);
-            targetContent.style.display = 'block';
-            // Small delay to allow display:block to apply before opacity transition
-            setTimeout(() => {
-                targetContent.classList.add('active');
-            }, 10);
         });
-    });
+    }
 
     // Smooth Scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
     // Navbar Scroll Effect
     window.addEventListener('scroll', () => {
         const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(18, 18, 18, 0.98)';
-            navbar.style.padding = '15px 0';
-        } else {
-            navbar.style.background = 'rgba(18, 18, 18, 0.95)';
-            navbar.style.padding = '20px 0';
+        if (navbar) {
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(18, 18, 18, 0.98)';
+                navbar.style.padding = '15px 0';
+            } else {
+                navbar.style.background = 'rgba(18, 18, 18, 0.95)';
+                navbar.style.padding = '20px 0';
+            }
         }
     });
 
@@ -71,12 +84,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentSlide = 0;
 
     function nextSlide() {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
+        if (slides.length > 0) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
     }
 
-    setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    if (slides.length > 0) {
+        setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    }
 
     // Exercise Library Data
     const exercises = [
@@ -98,6 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterBtns = document.querySelectorAll('.filter-btn');
 
     function renderExercises(filter) {
+        if (!exerciseGrid) return;
         exerciseGrid.innerHTML = '';
         const filtered = filter === 'all' ? exercises : exercises.filter(ex => ex.group === filter);
         
@@ -120,13 +138,15 @@ document.addEventListener('DOMContentLoaded', () => {
     renderExercises('all');
 
     // Filter Click Event
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            renderExercises(btn.getAttribute('data-filter'));
+    if (filterBtns) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderExercises(btn.getAttribute('data-filter'));
+            });
         });
-    });
+    }
 
     // BMI Calculator
     const calculateBtn = document.getElementById('calculate-bmi');
@@ -135,38 +155,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const bmiScore = document.querySelector('.bmi-score');
     const bmiText = document.querySelector('.bmi-text');
 
-    calculateBtn.addEventListener('click', () => {
-        const height = parseFloat(heightInput.value);
-        const weight = parseFloat(weightInput.value);
+    if (calculateBtn) {
+        calculateBtn.addEventListener('click', () => {
+            const height = parseFloat(heightInput.value);
+            const weight = parseFloat(weightInput.value);
 
-        if (height && weight) {
-            const bmi = (weight / ((height / 100) ** 2)).toFixed(1);
-            bmiScore.textContent = bmi;
+            if (height && weight) {
+                const bmi = (weight / ((height / 100) ** 2)).toFixed(1);
+                bmiScore.textContent = bmi;
 
-            let category = '';
-            let color = '';
+                let category = '';
+                let color = '';
 
-            if (bmi < 18.5) {
-                category = 'Underweight';
-                color = '#ffc107'; // Yellow
-            } else if (bmi < 25) {
-                category = 'Normal Weight';
-                color = '#D4FF00'; // Green (Theme)
-            } else if (bmi < 30) {
-                category = 'Overweight';
-                color = '#ff9800'; // Orange
+                if (bmi < 18.5) {
+                    category = 'Underweight';
+                    color = '#ffc107'; // Yellow
+                } else if (bmi < 25) {
+                    category = 'Normal Weight';
+                    color = '#D4FF00'; // Green (Theme)
+                } else if (bmi < 30) {
+                    category = 'Overweight';
+                    color = '#ff9800'; // Orange
+                } else {
+                    category = 'Obese';
+                    color = '#f44336'; // Red
+                }
+
+                bmiText.textContent = category;
+                bmiScore.style.color = color;
             } else {
-                category = 'Obese';
-                color = '#f44336'; // Red
+                bmiText.textContent = "Please enter valid details";
+                bmiScore.textContent = "--";
+                bmiScore.style.color = "var(--primary-color)";
             }
+        });
+    }
 
-            bmiText.textContent = category;
-            bmiScore.style.color = color;
-        } else {
-            bmiText.textContent = "Please enter valid details";
-            bmiScore.textContent = "--";
-            bmiScore.style.color = "var(--primary-color)";
-        }
-    });
-
-});
+};
