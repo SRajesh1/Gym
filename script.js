@@ -97,18 +97,18 @@ window.initApp = function() {
 
     // Exercise Library Data
     const exercises = [
-        { name: "Bench Press", group: "chest", desc: "Compound movement for chest strength.", img: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
-        { name: "Push Ups", group: "chest", desc: "Bodyweight classic for chest and core.", img: "https://images.unsplash.com/photo-1598971639058-211a74a96ccc?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
-        { name: "Pull Ups", group: "back", desc: "Builds a wide back and strong grip.", img: "https://images.unsplash.com/photo-1598289431512-b97b0917affc?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
-        { name: "Deadlift", group: "back", desc: "The king of compound lifts for total body.", img: "https://images.unsplash.com/photo-1517963879466-e1b54ebd512d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
-        { name: "Squats", group: "legs", desc: "Essential for leg size and strength.", img: "https://images.unsplash.com/photo-1574680096141-1cddd32e04ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
-        { name: "Lunges", group: "legs", desc: "Unilateral leg work for balance and muscle.", img: "https://images.unsplash.com/photo-1434608519344-49d77a699ded?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
+        { name: "Bench Press", group: "chest", desc: "Compound movement for chest strength.", img: "./images/BenchPress.jpg" },
+        { name: "Push Ups", group: "chest", desc: "Bodyweight classic for chest and core.", img: "./images/PushUp.jpg" },
+        { name: "Pull Ups", group: "back", desc: "Builds a wide back and strong grip.", img: "./images/Pullup.jpg" },
+        { name: "Deadlift", group: "back", desc: "The king of compound lifts for total body.", img: "./images/Deadlift.jpg" },
+        { name: "Squats", group: "legs", desc: "Essential for leg size and strength.", img: "./images/Sqats.jpg" },
+        { name: "Lunges", group: "legs", desc: "Unilateral leg work for balance and muscle.", img: "./images/Lunges.jpg" },
         { name: "Overhead Press", group: "shoulders", desc: "Builds broad, strong shoulders.", img: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
-        { name: "Lateral Raises", group: "shoulders", desc: "Isolates the side delts for width.", img: "https://images.unsplash.com/photo-1532029837066-8049a3c50e11?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
+        { name: "Lateral Raises", group: "shoulders", desc: "Isolates the side delts for width.", img: "./images/LateralRaises.jpg" },
         { name: "Bicep Curls", group: "arms", desc: "Classic isolation for arm size.", img: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
         { name: "Tricep Dips", group: "arms", desc: "Bodyweight move for horseshoe triceps.", img: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
-        { name: "Plank", group: "core", desc: "Static hold for core stability.", img: "https://images.unsplash.com/photo-1566241440091-ec10de8db2e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" },
-        { name: "Crunches", group: "core", desc: "Targets the upper abs.", img: "https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" }
+        { name: "Plank", group: "core", desc: "Static hold for core stability.", img: "./images/Plank.jpg" },
+        { name: "Crunches", group: "core", desc: "Targets the upper abs.", img: "./images/Crunches.jpg" }
     ];
 
     const exerciseGrid = document.getElementById('exercise-grid');
