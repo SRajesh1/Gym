@@ -191,4 +191,92 @@ window.initApp = function() {
         });
     }
 
-};
+    }
+
+    // Workout Modal Logic
+    const workoutData = {
+        hypertrophy: {
+            title: "Hypertrophy Training",
+            content: `
+                <ul>
+                    <li><strong>Goal:</strong> Maximize muscle size and growth.</li>
+                    <li><strong>Rep Range:</strong> 8-12 reps per set.</li>
+                    <li><strong>Rest:</strong> 60-90 seconds between sets.</li>
+                    <li><strong>Key Focus:</strong> Time under tension and progressive overload.</li>
+                    <li><strong>Best For:</strong> Bodybuilders and those looking to improve aesthetics.</li>
+                </ul>
+                <p>Hypertrophy training focuses on breaking down muscle fibers to stimulate repair and growth. It involves a mix of compound and isolation exercises.</p>
+            `
+        },
+        cardio: {
+            title: "Cardio & HIIT",
+            content: `
+                <ul>
+                    <li><strong>Goal:</strong> Improve cardiovascular health and burn fat.</li>
+                    <li><strong>Types:</strong> Steady-state (LISS) and High-Intensity Interval Training (HIIT).</li>
+                    <li><strong>Benefits:</strong> increased stamina, heart health, and calorie burn.</li>
+                    <li><strong>Frequency:</strong> 2-4 times per week depending on goals.</li>
+                </ul>
+                <p>HIIT involves short bursts of intense activity followed by rest, while steady-state cardio maintains a consistent effort level.</p>
+            `
+        },
+        powerlifting: {
+            title: "Powerlifting",
+            content: `
+                <ul>
+                    <li><strong>Goal:</strong> Maximize raw strength in the "Big 3" lifts.</li>
+                    <li><strong>Lifts:</strong> Squat, Bench Press, Deadlift.</li>
+                    <li><strong>Rep Range:</strong> 1-5 reps per set.</li>
+                    <li><strong>Rest:</strong> 3-5 minutes between sets.</li>
+                    <li><strong>Focus:</strong> Moving maximum weight with proper form.</li>
+                </ul>
+                <p>Powerlifting is about pure strength. Training volume is lower, but intensity is very high.</p>
+            `
+        },
+        calisthenics: {
+            title: "Calisthenics",
+            content: `
+                <ul>
+                    <li><strong>Goal:</strong> Master bodyweight control and functional strength.</li>
+                    <li><strong>Exercises:</strong> Pull-ups, Push-ups, Dips, Muscle-ups, Levers.</li>
+                    <li><strong>Benefits:</strong> minimal equipment needed, improves flexibility and coordination.</li>
+                    <li><strong>Progression:</strong> Increasing leverage difficulty rather than adding external weight.</li>
+                </ul>
+                <p>Calisthenics builds a lean, functional physique and impressive body control.</p>
+            `
+        }
+    };
+
+    window.openModal = function(type) {
+        const modal = document.getElementById('workout-modal');
+        const title = document.getElementById('modal-title');
+        const desc = document.getElementById('modal-description');
+        const closeBtn = document.getElementById('close-modal');
+
+        if (modal && workoutData[type]) {
+            title.textContent = workoutData[type].title;
+            desc.innerHTML = workoutData[type].content;
+            modal.classList.add('active');
+
+            // Close on click outside
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Close on button click
+            if (closeBtn) {
+                closeBtn.onclick = closeModal;
+            }
+        }
+    };
+
+    function closeModal() {
+        const modal = document.getElementById('workout-modal');
+        if (modal) {
+            modal.classList.remove('active');
+        }
+    }
+
+
