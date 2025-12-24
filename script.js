@@ -16,6 +16,7 @@ window.initApp = function() {
         links.forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
+                if (hamburger) hamburger.classList.remove('toggle');
             });
         });
     }
