@@ -191,6 +191,23 @@ window.initApp = function() {
         });
     }
 
+    // Roadmap Accordion
+    const roadmapCards = document.querySelectorAll('.roadmap-card');
+    if (roadmapCards) {
+        roadmapCards.forEach(card => {
+            const header = card.querySelector('.roadmap-header');
+            header.addEventListener('click', () => {
+                const isActive = card.classList.contains('active');
+                
+                // Close all other cards
+                roadmapCards.forEach(c => c.classList.remove('active'));
+                
+                // Toggle current card
+                if (!isActive) {
+                    card.classList.add('active');
+                }
+            });
+        });
     }
 
     // Workout Modal Logic
@@ -278,5 +295,6 @@ window.initApp = function() {
             modal.classList.remove('active');
         }
     }
+}
 
 
