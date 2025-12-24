@@ -21,38 +21,6 @@ window.initApp = function() {
         });
     }
 
-    // Diet Plan Tabs
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const dietContents = document.querySelectorAll('.diet-content');
-
-    if (tabBtns) {
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all buttons
-                tabBtns.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
-                btn.classList.add('active');
-
-                // Hide all content
-                dietContents.forEach(content => {
-                    content.style.display = 'none';
-                    content.classList.remove('active');
-                });
-
-                // Show target content
-                const targetId = btn.getAttribute('data-target');
-                const targetContent = document.getElementById(targetId);
-                if (targetContent) {
-                    targetContent.style.display = 'block';
-                    // Small delay to allow display:block to apply before opacity transition
-                    setTimeout(() => {
-                        targetContent.classList.add('active');
-                    }, 10);
-                }
-            });
-        });
-    }
-
     // Smooth Scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -151,10 +119,41 @@ window.initApp = function() {
 
     // BMI Calculator
     const calculateBtn = document.getElementById('calculate-bmi');
+    const resetBtn = document.getElementById('reset-bmi');
     const heightInput = document.getElementById('height');
     const weightInput = document.getElementById('weight');
+    const ageInput = document.getElementById('age');
     const bmiScore = document.querySelector('.bmi-score');
-    const bmiText = document.querySelector('.bmi-text');
+    const bmiCategory = document.querySelector('.bmi-category');
+    const statusMsg = document.querySelector('.status-msg');
+    const recommendationBox = document.getElementById('recommendation-box');
+
+    const recommendations = {
+        underweight: {
+            title: "Underweight",
+            msg: "You are below the healthy weight range. It's important to nourish your body properly.",
+            tips: ["Strength training focus", "High-calorie protein diet", "Muscle gain workout plan"],
+            color: "#ffc107"
+        },
+        normal: {
+            title: "Normal Weight",
+            msg: "You are in a healthy range. Maintain your lifestyle with a balanced diet and regular exercise.",
+            tips: ["Balanced workout (cardio + strength)", "Maintenance diet", "Lifestyle consistency"],
+            color: "#D4FF00"
+        },
+        overweight: {
+            title: "Overweight",
+            msg: "You are slightly above the healthy range. Small changes can make a big difference.",
+            tips: ["Fat-burning workouts", "Calorie-deficit diet", "Cardio-based plans"],
+            color: "#ff9800"
+        },
+        obese: {
+            title: "Obese",
+            msg: "Health risks are higher in this range. We recommend professional guidance for long-term health.",
+            tips: ["Low-impact workouts", "Medical disclaimer focus", "Beginner-level fitness plans"],
+            color: "#f44336"
+        }
+    };
 
     if (calculateBtn) {
         calculateBtn.addEventListener('click', () => {
@@ -165,30 +164,43 @@ window.initApp = function() {
                 const bmi = (weight / ((height / 100) ** 2)).toFixed(1);
                 bmiScore.textContent = bmi;
 
-                let category = '';
-                let color = '';
+                let state = '';
+                if (bmi < 18.5) state = 'underweight';
+                else if (bmi < 25) state = 'normal';
+                else if (bmi < 30) state = 'overweight';
+                else state = 'obese';
 
-                if (bmi < 18.5) {
-                    category = 'Underweight';
-                    color = '#ffc107'; // Yellow
-                } else if (bmi < 25) {
-                    category = 'Normal Weight';
-                    color = '#D4FF00'; // Green (Theme)
-                } else if (bmi < 30) {
-                    category = 'Overweight';
-                    color = '#ff9800'; // Orange
-                } else {
-                    category = 'Obese';
-                    color = '#f44336'; // Red
-                }
+                const rec = recommendations[state];
+                bmiScore.style.color = rec.color;
+                bmiCategory.textContent = rec.title;
+                bmiCategory.style.color = rec.color;
+                statusMsg.textContent = rec.msg;
 
-                bmiText.textContent = category;
-                bmiScore.style.color = color;
+                recommendationBox.innerHTML = `
+                    <h4><i class="fas fa-lightbulb"></i> Recommendations:</h4>
+                    <ul>
+                        ${rec.tips.map(tip => `<li>${tip}</li>`).join('')}
+                    </ul>
+                `;
+                recommendationBox.classList.add('active');
             } else {
-                bmiText.textContent = "Please enter valid details";
-                bmiScore.textContent = "--";
-                bmiScore.style.color = "var(--primary-color)";
+                alert("Please enter valid height and weight values.");
             }
+        });
+    }
+
+    if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+            heightInput.value = '';
+            weightInput.value = '';
+            ageInput.value = '';
+            bmiScore.textContent = '--';
+            bmiScore.style.color = 'var(--primary-color)';
+            bmiCategory.textContent = 'Enter Details';
+            bmiCategory.style.color = 'var(--text-muted)';
+            statusMsg.textContent = 'Fill in your physical data to see where you stand and get custom advice.';
+            recommendationBox.innerHTML = '';
+            recommendationBox.classList.remove('active');
         });
     }
 

@@ -2,24 +2,61 @@
     <section id="bmi" class="section">
         <div class="container">
             <h2 class="section-title">BMI <span class="highlight">Calculator</span></h2>
-            <p class="section-subtitle">Check your Body Mass Index to understand your health status.</p>
+            <p class="section-subtitle">Get personalized health insights and fitness recommendations.</p>
             
             <div class="bmi-container">
                 <div class="bmi-form">
-                    <div class="form-group">
-                        <label for="height">Height (cm)</label>
-                        <input type="number" id="height" placeholder="e.g. 175">
+                    <div class="form-row">
+                        <div class="form-group flex-1">
+                            <label for="height">Height (cm)</label>
+                            <input type="number" id="height" placeholder="e.g. 175" min="50" max="300">
+                        </div>
+                        <div class="form-group flex-1">
+                            <label for="weight">Weight (kg)</label>
+                            <input type="number" id="weight" placeholder="e.g. 70" min="20" max="500">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="weight">Weight (kg)</label>
-                        <input type="number" id="weight" placeholder="e.g. 70">
+                    
+                    <div class="form-row">
+                        <div class="form-group flex-1">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" placeholder="e.g. 25" min="10" max="100">
+                        </div>
+                        <div class="form-group flex-1">
+                            <label>Gender</label>
+                            <div class="gender-options">
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="male" checked> <span>Male</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="female"> <span>Female</span>
+                                </label>
+                            </div>
+                        </div>
                     </div>
-                    <button id="calculate-bmi" class="btn btn-primary">Calculate BMI</button>
+
+                    <div class="bmi-actions">
+                        <button id="calculate-bmi" class="btn btn-primary">Calculate BMI</button>
+                        <button id="reset-bmi" class="btn btn-secondary-small">Reset</button>
+                    </div>
                 </div>
-                <div class="bmi-result" id="bmi-result">
-                    <div class="bmi-score">--</div>
-                    <div class="bmi-text">Enter your details</div>
+
+                <div class="bmi-result-panel" id="bmi-result-panel">
+                    <div class="bmi-main-result">
+                        <div class="bmi-score">--</div>
+                        <div class="bmi-category">Enter Details</div>
+                    </div>
+                    <div class="bmi-interpretation" id="bmi-interpretation">
+                        <p class="status-msg">Fill in your physical data to see where you stand and get custom advice.</p>
+                        <div class="recommendation-box" id="recommendation-box">
+                            <!-- Recommendations will be injected here -->
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <p class="bmi-disclaimer">
+                <strong>Disclaimer:</strong> BMI is a general health indicator. It does not measure body fat directly. Consult a healthcare professional for accurate medical diagnosis.
+            </p>
         </div>
     </section>

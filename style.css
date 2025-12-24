@@ -293,72 +293,6 @@ ul {
     gap: 15px;
 }
 
-/* Diet Plans */
-.diet-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-}
-
-.tab-btn {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: var(--text-color);
-    padding: 10px 25px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-family: var(--font-main);
-    font-size: 1rem;
-    transition: var(--transition);
-}
-
-.tab-btn.active,
-.tab-btn:hover {
-    background-color: var(--primary-color);
-    color: var(--bg-color);
-    border-color: var(--primary-color);
-}
-
-.diet-content {
-    animation: fadeIn 0.5s ease;
-}
-
-.diet-card {
-    background-color: var(--card-bg);
-    padding: 40px;
-    border-radius: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    border-left: 5px solid var(--primary-color);
-}
-
-.diet-card h3 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.diet-card ul li {
-    margin-bottom: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    display: flex;
-    gap: 10px;
-}
-
-.diet-card ul li:last-child {
-    border-bottom: none;
-}
-
-.diet-card ul li strong {
-    color: var(--primary-color);
-    min-width: 100px;
-}
-
 /* Footer */
 .footer {
     padding: 50px 0;
@@ -693,75 +627,223 @@ ul {
     font-size: 0.9rem;
 }
 
-/* BMI Calculator */
+/* BMI Calculator Redesign */
 .bmi-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
     background-color: var(--card-bg);
-    padding: 40px;
-    border-radius: 20px;
-    max-width: 800px;
+    padding: 50px;
+    border-radius: 25px;
+    max-width: 1000px;
     margin: 0 auto;
     border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .bmi-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.flex-1 {
     flex: 1;
-    min-width: 250px;
 }
 
-.form-group {
-    margin-bottom: 20px;
+.gender-options {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
     color: var(--text-muted);
+    transition: var(--transition);
 }
 
-.form-group input {
-    width: 100%;
-    padding: 12px;
-    background-color: var(--bg-color);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    color: var(--text-color);
-    font-family: var(--font-main);
-    font-size: 1rem;
+.radio-label input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    margin: 0;
+    position: relative;
+    cursor: pointer;
 }
 
-.form-group input:focus {
-    outline: none;
+.radio-label input[type="radio"]:checked {
     border-color: var(--primary-color);
 }
 
-.bmi-result {
-    flex: 1;
-    min-width: 250px;
+.radio-label input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background: var(--primary-color);
+    border-radius: 50%;
+}
+
+.radio-label:hover {
+    color: var(--text-color);
+}
+
+.bmi-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.btn-secondary-small {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-secondary-small:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.bmi-result-panel {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    padding: 35px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    background-color: var(--bg-color);
-    border-radius: 15px;
-    padding: 20px;
     text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    animation: fadeIn 0.5s ease-out;
+}
+
+.bmi-main-result {
+    margin-bottom: 25px;
 }
 
 .bmi-score {
-    font-size: 4rem;
+    font-size: 5rem;
     font-weight: 700;
     color: var(--primary-color);
     line-height: 1;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    text-shadow: 0 0 20px rgba(212, 255, 0, 0.2);
 }
 
-.bmi-text {
-    font-size: 1.2rem;
+.bmi-category {
+    font-size: 1.5rem;
+    font-weight: 600;
     color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
+
+.status-msg {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.recommendation-box {
+    text-align: left;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 12px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+}
+
+.recommendation-box.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.recommendation-box h4 {
+    color: var(--primary-color);
+    font-size: 1rem;
+    margin-bottom: 12px;
+}
+
+.recommendation-box ul {
+    list-style: none;
+}
+
+.recommendation-box li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.recommendation-box li::before {
+    content: '•';
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.bmi-disclaimer {
+    margin-top: 40px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+}
+
+/* Responsive BMI */
+@media (max-width: 900px) {
+    .bmi-container {
+        grid-template-columns: 1fr;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .bmi-score {
+        font-size: 4rem;
+    }
+
+    .bmi-actions {
+        flex-direction: column;
+    }
+
+    .btn-secondary-small {
+        width: 100%;
+        text-align: center;
+    }
+}
+
 
 /* Animations */
 @keyframes fadeIn {
@@ -907,24 +989,6 @@ ul {
         font-size: 2rem;
     }
 
-    .diet-tabs {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .tab-btn {
-        width: 100%;
-    }
-
-    .diet-card h3 {
-        font-size: 1.5rem;
-    }
-
-    .diet-card ul li {
-        flex-direction: column;
-        gap: 5px;
-    }
-
     .bmi-container {
         flex-direction: column;
         padding: 20px;
@@ -953,6 +1017,7 @@ ul {
         font-size: 1.5rem;
     }
 }
+
 /* Modal Styles */
 .modal-overlay {
     position: fixed;
@@ -1052,7 +1117,9 @@ ul {
     transition: var(--transition);
 }
 
-.roadmap-card:hover { border-color: rgba(212, 255, 0, 0.3); }
+.roadmap-card:hover {
+    border-color: rgba(212, 255, 0, 0.3);
+}
 
 .roadmap-header {
     padding: 25px 30px;
@@ -1103,7 +1170,8 @@ ul {
 }
 
 .roadmap-card.active .roadmap-content {
-    max-height: 2000px; /* Large enough for content */
+    max-height: 2000px;
+    /* Large enough for content */
     padding: 0 30px 30px;
 }
 
@@ -1152,7 +1220,8 @@ ul {
     min-width: 500px;
 }
 
-.roadmap-table th, .roadmap-table td {
+.roadmap-table th,
+.roadmap-table td {
     padding: 12px 15px;
     text-align: left;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -1171,9 +1240,21 @@ ul {
 
 /* Responsive Roadmap */
 @media (max-width: 768px) {
-    .roadmap-header { padding: 20px; }
-    .level-info { flex-direction: column; align-items: flex-start; gap: 10px; }
-    .roadmap-card.active .roadmap-content { padding: 0 20px 20px; }
-    .roadmap-grid { gap: 20px; }
-}
+    .roadmap-header {
+        padding: 20px;
+    }
 
+    .level-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .roadmap-card.active .roadmap-content {
+        padding: 0 20px 20px;
+    }
+
+    .roadmap-grid {
+        gap: 20px;
+    }
+}
